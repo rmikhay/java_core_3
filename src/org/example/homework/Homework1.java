@@ -11,6 +11,16 @@ public class Homework1 {
     public static void ex1() {
         //Дана строка
         String name = "     ПЕтРов Олег Иванович     ";
+        name = name.strip().toUpperCase();
+        if (name.contains("ОВА ")) {
+            System.out.printf("Уважаемая %s\n", name);
+        } else if (name.contains("ОВ ")) {
+            System.out.printf("Уважаемый %s\n", name);
+        } else {
+            System.out.printf("Неизвестное лицо %s\n", name);
+        }
+
+
         //Необходимо
         //1. убрать лишние пробелы,
         //2. перевести текст в верхний регистр
@@ -37,10 +47,10 @@ public class Homework1 {
         // когда топлива не меньше 10 литров, двигатель работает, колеса все работают, нет ошибок
         //В ином случае, машина не должна запускаться
         if (
-                fuel < 10
-                ||  (!isWheelWork1 || isWheelWork2 || isWheelWork3 || isWheelWork4)
-                && hasErrors
-                || isEngineWork
+                !(fuel < 10)
+                &&  (isWheelWork1 && isWheelWork2 && isWheelWork3 && isWheelWork4)
+                && !hasErrors
+                && isEngineWork
         ) {
             System.out.println("Машина работает");
         } else {
@@ -53,9 +63,49 @@ public class Homework1 {
         //Заменить в строке все 'this is' на 'those are', получить индекс (число) второй буквы 'o' в строке
         //Распечатать полученный индекс
         String simply = "this is simply. This is my favorite song.";
+        simply = simply.replaceAll("this is", "those are");
+        simply = simply.replaceAll("This is", "Those are");
+        int indexLetter = simply.indexOf("o", simply.indexOf("o") + 1);
+        System.out.println(indexLetter);
+        System.out.println(simply);
     }
 
     public static void ex4() {
+        int sausageWeight = 2000;
+        int hamWeight = 8511;
+        int porkNeckWeight = 6988;
+        int sausagePrice = 800;
+        int hamPrice = 350;
+        int porkNeckPrice = 500;
+        int sausageCost, hamCost, porkNeckCost;
+        // Расчет себестоимости
+        if (sausageWeight < 1000) {
+            sausageCost = 412;
+        } else if (sausageWeight < 2000) {
+            sausageCost = 408;
+        } else {
+            sausageCost = 404;
+        }
+        hamCost = 275;
+        if (porkNeckWeight < 500) {
+            porkNeckCost = 311;
+        } else {
+            porkNeckCost = 299;
+        }
+        //Расчет дохода, расчхода и прибыли
+        int income = sausagePrice * sausageWeight + hamPrice * hamWeight + porkNeckPrice * porkNeckWeight;
+        int consumption = sausageCost * sausageWeight + hamCost * hamWeight + porkNeckCost * porkNeckWeight + 1000000;
+        int profitBeforeTaxes = income - consumption;
+        double taxes;
+        if (profitBeforeTaxes < 1_000_000) {
+            taxes = profitBeforeTaxes * 0.08;
+        } else if (profitBeforeTaxes < 2_000_000) {
+            taxes = (profitBeforeTaxes - 1_000_000) * 0.1 + 1_000_000 * 0.08;
+        } else {
+            taxes = (profitBeforeTaxes - 2_000_000) * 0.13 + 1_000_000 * 0.1 + 1_000_000 * 0.08;
+        }
+        double profit = profitBeforeTaxes - taxes;
+        System.out.println(profit);
         //Компания Рога и Копыта производит мясные продукты.
         //Перечень производимых товаров :
         //Колбаса - стоимость 800 руб,
