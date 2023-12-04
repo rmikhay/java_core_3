@@ -32,7 +32,7 @@ public class Homework2 {
         int leftDownToRightUpSum = 0;
         for (int i = 0; i <10 ; i++) {
             leftUpToRightDownSum += arrayOfNumbers[i][i];
-            leftDownToRightUpSum += arrayOfNumbers[9-i][i];
+            leftDownToRightUpSum += arrayOfNumbers[arrayOfNumbers.length-1-i][i];
         }
         System.out.println("С левого верхнего угла к нижнему правому " + leftUpToRightDownSum);
         System.out.println("С левого нижнего угла к верхнему правому " + leftDownToRightUpSum);
