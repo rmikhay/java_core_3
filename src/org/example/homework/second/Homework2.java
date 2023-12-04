@@ -30,7 +30,7 @@ public class Homework2 {
         //Вывесим на экран
         int leftUpToRightDownSum = 0;
         int leftDownToRightUpSum = 0;
-        for (int i = 0; i < arrayOfNumbers.length ; i++) {
+        for (int i = 0; i < arrayOfNumbers.length; i++) {
             leftUpToRightDownSum += arrayOfNumbers[i][i];
             leftDownToRightUpSum += arrayOfNumbers[arrayOfNumbers.length-1-i][i];
         }
