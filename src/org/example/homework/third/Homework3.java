@@ -1,12 +1,32 @@
 package org.example.homework.third;
 
+import org.example.homework.third.ex1.Birch;
+import org.example.homework.third.ex1.Pine;
+import org.example.homework.third.ex1.Spruce;
+import org.example.homework.third.ex1.Tree;
+import org.example.homework.third.ex2.Factory;
+import org.example.homework.third.ex2.Iphone;
+import org.example.homework.third.ex2.Samsung;
+
 public class Homework3 {
     public static void main(String[] args) {
+        ex1();
+        ex2();
         //В этом дз уже будет проверятся наличие корректных модификаторов доступа
         //у классов, атрибутов, методов
     }
 
     public static void ex1() {
+        Pine pine = new Pine(46);
+        Birch birch = new Birch(40, true);
+        Spruce spruce = new Spruce(35);
+        Tree[] trees = new Tree[] {pine, birch, spruce};
+        float sum = 0;
+        for (Tree tree : trees) {
+            sum += tree.getAge();
+        }
+        float average = sum / trees.length;
+        System.out.println(average);
         //Реализовать в Java следующую схему (в скобках свойства объектов)
         //У нас есть Дерево(возраст)
         //Деревья делятся на:
@@ -26,6 +46,11 @@ public class Homework3 {
     }
 
     public static void ex2() {
+        Factory factory = new Factory();
+        Iphone iphone = new Iphone("Iphone 15");
+        Samsung samsung = new Samsung("Samsung galaxy");
+        factory.createPhone(iphone);
+        factory.createPhone(samsung);
         //Задача: Фабрика телефонов
         //Создать 2 типа телефонов и комплектующих к ним.
         //При печати телефона должны показываться все свойства телефона и вложенных объектов.
