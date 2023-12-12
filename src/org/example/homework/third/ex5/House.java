@@ -27,9 +27,9 @@ public class House {
 
     @Override
     public String toString() {
-        return "House{" +
-                "street='" + street + '\'' +
-                ", houseNumber=" + houseNumber +
-                '}';
+        return "House{"
+                + "street='" + street + '\''
+                + ", houseNumber=" + houseNumber
+                + '}';
     }
 }

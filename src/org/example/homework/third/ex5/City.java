@@ -10,16 +10,17 @@ public final class City {
         this.name = name;
         House[] housesCopy = new House[houses.length];
         for (int i = 0; i < houses.length; i++) {
-            housesCopy[i] = houses[i];
+            House house = new House(houses[i].getStreet(), houses[i].getHouseNumber());
+            housesCopy[i] = house;
         }
         this.houses = housesCopy;
     }
 
     @Override
     public String toString() {
-        return "City{" +
-                "name='" + name + '\'' +
-                ", houses=" + Arrays.toString(houses) +
-                '}';
+        return "City{"
+                + "name='" + name + '\''
+                + ", houses=" + Arrays.toString(this.houses)
+                + '}';
     }
 }
