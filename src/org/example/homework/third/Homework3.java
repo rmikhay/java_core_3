@@ -7,16 +7,26 @@ import org.example.homework.third.ex1.Tree;
 import org.example.homework.third.ex2.Factory;
 import org.example.homework.third.ex2.Iphone;
 import org.example.homework.third.ex2.Samsung;
+import org.example.homework.third.ex3.Pyramid1;
+import org.example.homework.third.ex4.LotteryTicket;
+import org.example.homework.third.ex5.City;
+import org.example.homework.third.ex5.House;
+
+import java.util.SortedMap;
 
 public class Homework3 {
     public static void main(String[] args) {
         ex1();
         ex2();
+        ex3();
+        ex4();
+        ex5();
         //В этом дз уже будет проверятся наличие корректных модификаторов доступа
         //у классов, атрибутов, методов
     }
 
     public static void ex1() {
+        System.out.println("Ex1");
         Pine pine = new Pine(46);
         Birch birch = new Birch(40, true);
         Spruce spruce = new Spruce(35);
@@ -46,6 +56,7 @@ public class Homework3 {
     }
 
     public static void ex2() {
+        System.out.println("\n" + "Ex2");
         Factory factory = new Factory();
         Iphone iphone = new Iphone("Iphone 15");
         Samsung samsung = new Samsung("Samsung galaxy");
@@ -70,6 +81,7 @@ public class Homework3 {
     }
 
     public static void ex3() {
+        System.out.println("\n" + "Ex3");
         //Задача: Пирамида наследования
         //Создать классы Pyramid1, Pyramid2, Pyramid3.
         //НЕОБХОДИМО НАСЛЕДОВАНИЕ С ИСПОЛЬЗОВАНИЕМ РОДИТЕЛЬСКИХ МЕТОДОВ!
@@ -91,9 +103,12 @@ public class Homework3 {
         // MMM
 
         //создать здесь pyramid1 и вызвать print
+        Pyramid1 pyramid1 = new Pyramid1();
+        pyramid1.print();
     }
 
     public static void ex4() {
+        System.out.println("\n" + "Ex4");
         //Задача со звездочкой!: Лотерейный билет
         //Создать класс лотерейный билет (у объекта не может быть атрибутов)
         //создать метод проверить удачу (не принимает в себя аргументов!):
@@ -104,9 +119,23 @@ public class Homework3 {
         //
         //Создать здесь 110 билетов, и проверить по каждому удачу.
         //Итоговая сумма выигрыша после проверки удачи 110 билетов должна составить 6_000.
+        for (int i = 0; i < 110; i++) {
+            LotteryTicket lotteryTicket = new LotteryTicket();
+            lotteryTicket.checkLuck();
+        }
+        System.out.println(LotteryTicket.getWinningAmounts());
     }
 
     public static void ex5() {
+        System.out.println("\n" + "Ex5");
+        House house1 = new House("Ленина", 21);
+        House house2 = new House("Мира", 25);
+        City city = new City("Москва", new House[]{house1, house2});
+        System.out.println(house1);
+        System.out.println(city);
+        house1.setStreet("8 марта");
+        System.out.println(house1);
+        System.out.println(city);
         //Задача со звездочкой: иммутабельность города.
         //Иммутабельность - невозможность поменять свойства объекта и всех его вложенных объектов.
         //

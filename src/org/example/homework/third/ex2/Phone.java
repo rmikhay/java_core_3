@@ -1,12 +1,9 @@
 package org.example.homework.third.ex2;
 
 public abstract class Phone {
-
     protected Board board;
     protected String modelName;
-
     protected Camera camera;
-
     protected String operatingSystem;
 
     public Phone() {
